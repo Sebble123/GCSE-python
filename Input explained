@@ -1,0 +1,12 @@
+#Inputs explained
+#Input is another function
+#Here is an example
+
+name = str(input("enter name "))#casting for string
+print("your name is", name)
+
+fav_float = float(input("float "))#casting for float
+print("your float is", fav_float)
+
+age = int(input("enter age "))#casting for integer
+print("your age is", age)

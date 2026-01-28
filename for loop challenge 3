@@ -1,0 +1,4 @@
+name = str(input("name "))
+
+for char in name:
+    print(char)

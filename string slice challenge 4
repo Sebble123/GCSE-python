@@ -1,0 +1,10 @@
+firstLine = input("enter first line of nursery rhyme")
+
+length = len(firstLine)
+print(f"This has {length} number of letters in it")
+
+startnum = int(input("enter starting number "))
+endnum = int(input("enter end number "))
+
+phrase = len(firstLine[startnum : endnum + 1])
+print(phrase

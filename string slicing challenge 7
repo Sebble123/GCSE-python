@@ -1,0 +1,6 @@
+name = input("enter first name ")
+
+if name[0] == "a" or name[0] == "e" or name[0] == "i" or name[0] == "o" or name[0] == "u":
+    name = " "
+
+print(name)

@@ -1,0 +1,96 @@
+'''
+·      Create similar code you may see in a ATM (Automated teller machine). 
+
+·      This can include but not limited to: 
+
+o   A four-digit pin code to access the bank account. (3 chances only to access) 
+
+o   A welcome screen with options (like picture above) 
+
+·      Show balance (pretend the user has 1000 pounds in their account) 
+
+·      Deposit funds (ask the user if they would like to deposit money – if they do, their balance should update) 
+
+·      Withdraw funds (ask the user if they would like to withdraw money – if they do, their balance should update) 
+
+·      Change pin code (Allow the user to change their pin number)
+'''
+
+print("=== ATM MACHINE ===")
+
+pin = 2306
+balance = 100000  # £1000.00 stored as pence
+max_attempts = 3
+
+def format_money(pence):
+    return f"£{pence/100:,.2f}"
+
+name = input("Enter account name: ")
+
+# PIN check
+attempts = 0
+while attempts < max_attempts:
+    entered_pin = int(input("Enter PIN: "))
+    
+    if entered_pin == pin:
+        print(f"Welcome, {name}!")
+        break
+    else:
+        attempts += 1
+        print("Incorrect PIN.")
+        print("Attempts left:", max_attempts - attempts)
+
+if attempts == max_attempts:
+    print("Too many incorrect attempts. Account locked.")
+else:
+    while True:
+        print("\n--- MENU ---")
+        option = int(input(
+            "1. View Balance\n"
+            "2. Withdraw Money\n"
+            "3. Deposit Money\n"
+            "4. Change PIN\n"
+            "5. Exit\n"
+            "Choose option: "
+        ))
+
+        if option == 1:
+            print(f"Your balance is: {format_money(balance)}")
+
+        elif option == 2:
+            pounds = float(input("Enter withdrawal amount (£): "))
+            amount = int(pounds * 100)
+
+            if amount > balance:
+                print("Insufficient funds.")
+            elif amount <= 0:
+                print("Invalid amount.")
+            else:
+                balance -= amount
+                print(f"Withdrawn {format_money(amount)}. New balance: {format_money(balance)}")
+
+        elif option == 3:
+            pounds = float(input("Enter deposit amount (£): "))
+            amount = int(pounds * 100)
+
+            if amount <= 0:
+                print("Invalid amount.")
+            else:
+                balance += amount
+                print(f"Deposited {format_money(amount)}. New balance: {format_money(balance)}")
+
+        elif option == 4:
+            old_pin = int(input("Enter current PIN: "))
+            if old_pin == pin:
+                new_pin = int(input("Enter new 4-digit PIN: "))
+                pin = new_pin
+                print("PIN successfully changed.")
+            else:
+                print("Incorrect current PIN.")
+
+        elif option == 5:
+            print("Thank you for using the ATM.")
+            break
+
+        else:
+            print("Invalid option. Try again.")

@@ -1,0 +1,4 @@
+range1 = int(input("enter a range "))
+range2 = int(input("enter another range "))
+
+EmptyArray = [[a for column in range(range1)] for row in range(range2)]

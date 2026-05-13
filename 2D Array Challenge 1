@@ -1,0 +1,8 @@
+MySpaceCompany = []
+v1 = input("enter space vehicle ")
+v2 = input("enter space vehicle ")
+v3 = input("enter space vehicle ")
+MySpaceCompany.append(v1)
+MySpaceCompany.append(v2)
+MySpaceCompany.append(v3)
+print(MySpaceCompany)
